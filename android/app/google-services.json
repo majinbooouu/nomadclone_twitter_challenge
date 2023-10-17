@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "468939182239",
+    "project_id": "majinbuu-twitter-challenge",
+    "storage_bucket": "majinbuu-twitter-challenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468939182239:android:e1feacb7ff0fb407dcd2aa",
+        "android_client_info": {
+          "package_name": "com.example.twitter_clone_challenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBvNmYWIqShcazbrofP1_nTBzgC6dyPAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
