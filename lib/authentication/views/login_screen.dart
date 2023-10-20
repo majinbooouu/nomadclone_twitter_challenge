@@ -63,12 +63,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             const SizedBox(
               height: 50,
             ),
-            Container(
+            const SizedBox(
               width: 300,
               height: 300,
-              decoration: const BoxDecoration(
-                color: Colors.amber,
-              ),
+              child: Image(image: AssetImage("assets/images/bunker.webp")),
             ),
             const SizedBox(
               height: 50,
@@ -82,29 +80,51 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      hintText: "Email",
+                      labelText: "Email",
+                      hintText: "ex) happy@x.com",
                     ),
+                    cursorColor: Theme.of(context).colorScheme.secondary,
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   TextField(
                     controller: _passwordController,
                     obscureText: _obscureText,
                     decoration: const InputDecoration(
-                      hintText: "Password",
+                      labelText: "Password",
+                      hintText: "Set strong password",
                     ),
+                    cursorColor: Theme.of(context).colorScheme.secondary,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: _onSubmit,
+                    onPressed: _passwordController.text.isNotEmpty &&
+                            _emailController.text.isNotEmpty
+                        ? _onSubmit
+                        : null,
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                    ),
                     child: const Text("Next"),
                   )
                 ],
               ),
             ),
-            TextButton(
-              onPressed: () => context.push(SignUpScreen.routeURL),
-              child: const Text("creat account"),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              onTap: () => context.push(SignUpScreen.routeURL),
+              child: Text(
+                "Don't you have an account yet?",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+              ),
             ),
           ],
         ),
