@@ -23,7 +23,7 @@ class WritePostNotifier extends AsyncNotifier<void> {
             creatorUid: ref.read(authRepo).user!.uid,
             creator: "anonymous",
             createdAt: DateTime.now().millisecondsSinceEpoch,
-            emojiIndex: emojiIndex),
+            skillIndex: emojiIndex),
       );
     });
   }

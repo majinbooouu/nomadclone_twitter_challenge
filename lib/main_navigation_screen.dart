@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:twitter_clone_challenge/authentication/repos/authentication_repo.dart';
+import 'package:twitter_clone_challenge/post/views/post_timeline_screen.dart';
 import 'package:twitter_clone_challenge/write/views/write_screen.dart';
 
 class MainNavScreen extends ConsumerStatefulWidget {
@@ -47,8 +48,9 @@ class _MainNavScreenState extends ConsumerState<MainNavScreen> {
                   icon: const FaIcon(FontAwesomeIcons.gear),
                 ),
               ],
-              title: const Text("🔥MOOD🔥"),
-              elevation: 0,
+              title: const Text("Bunker"),
+              elevation: 0.2,
+              shadowColor: Colors.grey.shade700,
               // backgroundColor: Theme.of(context).colorScheme.onPrimary,
             )
           : null,
@@ -56,7 +58,7 @@ class _MainNavScreenState extends ConsumerState<MainNavScreen> {
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: const Center(child: Text("Post Screen")),
+            child: const PostTimeLineScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 1,

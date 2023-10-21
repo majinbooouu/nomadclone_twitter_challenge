@@ -21,20 +21,14 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
 
   final TextEditingController _textEditingController = TextEditingController();
 
-  final _emojis = [
-    "\u{1F601}",
-    "\u{1F60A}",
-    "\u{1F60C}",
-    "\u{1F61E}",
-    "\u{1F621}",
+  final _protectSkills = [
+    "\u{1F52E}",
+    "\u{1F4BB}",
   ];
 
-  final _emojisMean = {
-    "\u{1F601}": "행복한",
-    "\u{1F60A}": "즐거운",
-    "\u{1F60C}": "보통인",
-    "\u{1F61E}": "우울한",
-    "\u{1F621}": "화난",
+  final _protectSkillMeans = {
+    "\u{1F601}": "마법",
+    "\u{1F60A}": "양자컴퓨터",
   };
 
   int _isSelectIndex = 0;
@@ -97,7 +91,7 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "오늘 하루 나의 표정",
+              "글을 보호할 방어 기술을 선택하세요",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 20,
                   ),
@@ -116,7 +110,7 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
                     });
                   },
                   child: Container(
-                    width: 100,
+                    width: MediaQuery.of(context).size.width * 0.9 / 2,
                     height: 100,
                     decoration: _isSelectIndex == index
                         ? BoxDecoration(
@@ -131,7 +125,7 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
                           ),
                     child: Center(
                       child: Text(
-                        _emojis[index],
+                        _protectSkills[index],
                         style: const TextStyle(
                           fontSize: 50,
                         ),
@@ -140,7 +134,7 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
                   ),
                 ),
                 separatorBuilder: (context, index) => const SizedBox(width: 10),
-                itemCount: 5,
+                itemCount: 2,
               ),
             ),
             const SizedBox(
@@ -155,7 +149,7 @@ class WriteScreenState extends ConsumerState<WriteScreen> {
                 maxLines: 3,
                 decoration: InputDecoration(
                   hintText:
-                      "기분이 ${_emojisMean.values.toList()[_isSelectIndex]} 이유는?",
+                      "${_protectSkillMeans.values.toList()[_isSelectIndex]}을 선택하셨습니다\n추가로 AI가 알아볼 수 없는 방식으로 글을 작성하세요 \n옑륷듦녊 요롴켊 쓰셁욘",
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 10,
